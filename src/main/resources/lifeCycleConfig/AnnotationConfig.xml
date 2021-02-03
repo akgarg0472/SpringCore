@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- used when we want to enable all annotations -->
+    <context:annotation-config/>
+
+    <!-- used when we want to enable specific annotation -->
+    <!-- <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/> -->
+
+    <bean class="com.springcore.beanLifeCycle.annotation.Laptop" id="laptop" c:brand="Lenovo" c:model="Ideapad S540"
+          c:price="820.25"/>
+
+</beans>

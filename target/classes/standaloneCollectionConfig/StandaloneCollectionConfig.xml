@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- this is traditional way in which we create collection who has local scope -->
+    <!--    <bean class="com.springcore.standaloneCollection.Student" id="student">-->
+    <!--        <property name="marks">-->
+    <!--            <list>-->
+    <!--                <value type="int">70</value>-->
+    <!--                <value type="int">80</value>-->
+    <!--                <value type="int">90</value>-->
+    <!--                <value type="int">100</value>-->
+    <!--            </list>-->
+    <!--        </property>-->
+    <!--        <property name="info">-->
+    <!--            <map>-->
+    <!--                <entry key="1" value="First Name"/>-->
+    <!--                <entry key="2" value="Last Name"/>-->
+    <!--                <entry key="3" value="Email Address"/>-->
+    <!--                <entry key="4" value="Phone Number"/>-->
+    <!--                <entry key="5" value="Address"/>-->
+    <!--            </map>-->
+    <!--        </property>-->
+    <!--    </bean>-->
+
+
+    <!-- creating standalone collection objects(beans) which can be used any where in this configuration file -->
+    <!-- standalone collection beans -->
+    <util:list list-class="java.util.LinkedList" id="marksList">
+        <value type="int">60</value>
+        <value type="int">70</value>
+        <value type="int">80</value>
+        <value type="int">90</value>
+        <value type="int">100</value>
+    </util:list>
+
+    <util:map map-class="java.util.LinkedHashMap" id="coursesMap">
+        <entry key="Java SE" value="4000"/>
+        <entry key="Java EE" value="6000"/>
+        <entry key="Spring Framework" value="7000"/>
+        <entry key="Git and Github" value="2000"/>
+    </util:map>
+
+    <!-- Student class bean -->
+    <bean class="com.springcore.standaloneCollection.Student" id="student">
+        <property name="marks" ref="marksList"/>
+        <property name="courses" ref="coursesMap"/>
+    </bean>
+</beans>

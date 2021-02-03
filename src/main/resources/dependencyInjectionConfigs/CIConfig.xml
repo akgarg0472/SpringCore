@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Constructor Injection -->
+
+    <!-- Setting primitive and reference type values -->
+    <!--    <bean class="Computer" id="computer">-->
+    <!--        <constructor-arg value="Apple"/>-->
+    <!--        <constructor-arg value="2020"/>-->
+
+    <!-- for constructor ambiguity -->
+    <!-- <constructor-arg value="2020" type="int"/> -->
+
+    <!--        <constructor-arg>-->
+    <!--            <ref bean="specifications"/>-->
+    <!--        </constructor-arg>-->
+    <!--        <constructor-arg ref="specifications"/>-->
+    <!--    </bean>-->
+
+    <!-- Setting Collection type values -->
+    <bean class="com.springcore.dependencyInjection.constructor.Computer" id="computer">
+        <constructor-arg index="0">
+            <list>
+                <value>Apple</value>
+                <value>Macbook Pro 2020 16"</value>
+                <value>Intel Core i9 10th gen</value>
+                <value>8GB and 2TB</value>
+                <null/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+    <!-- using constructor namespace (c schema) to initialize default values to our constructor -->
+    <bean class="com.springcore.dependencyInjection.constructor.Specifications" id="specifications"
+          c:CPU="Intel Core i9 10th gen"
+          c:RAM="8GB" c:storage="2TB"/>
+    <!-- setting values using setter injection using property namespace(p schema) -->
+    <!--          p:CPU="Intel Core i9 10th gen"-->
+    <!--          p:RAM="8Gigs" p:storage="2TB"/>-->
+
+</beans>
