@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("beanScope/BeanScopeSingletonConfig.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("beanScopeConfig/BeanScopeSingletonConfig.xml");
         // all hash codes will be same for singleton bean scope
         System.out.println(context.getBean("smartphone"));
         System.out.println(context.getBean("smartphone"));
@@ -16,7 +16,7 @@ public class Main {
 
         // to change scope, we can either use XML configuration using scope="scopeName" attribute
         // or we can use annotation @Scope("scopeName") to define scope
-        context = new ClassPathXmlApplicationContext("beanScope/BeanScopePrototypeConfig.xml");
+        context = new ClassPathXmlApplicationContext("beanScopeConfig/BeanScopePrototypeConfig.xml");
         // all hash codes will be different for proto type bean scope
         System.out.println(context.getBean("smartphone"));
         System.out.println(context.getBean("smartphone"));
