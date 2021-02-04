@@ -19,3 +19,12 @@ public class Main {
         System.out.println("Value of expression: " + expression.getValue());
     }
 }
+
+// expression language is used to evaluate expressions using either @Value("") annotation or by using Spring interfaces for expression language.
+// we can use any expression which returns some value same as the field type.
+// we can call static method, static variables of a class using expression language
+/* syntax of expression language:
+     - for normal expression: @Value("#{expression}")
+     - for static method call: @Value("#{ T(class with complete package name).staticMethodName(Parameters) }")
+     - for static fields call: @Value("#{ T(class with complete package name).staticFieldName }")
+*/
