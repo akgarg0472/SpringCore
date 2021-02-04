@@ -13,6 +13,8 @@ public class Programming {
     private double demand;
     @Value("#{ T(java.lang.Thread).MAX_PRIORITY }")   // calling static constant(s)/field(s)
     private int priority;
+    @Value("#{ 5>1 }")
+    private boolean isTrue;
 
     @Override
     public String toString() {
@@ -21,6 +23,7 @@ public class Programming {
                 ",\n\tadvantages='" + advantages + '\'' +
                 "\n\tdemand = " + '\'' + demand +
                 "\n\tpriority = " + priority +
+                "\n\tisTrue = " + isTrue +
                 "\n}";
     }
 }
